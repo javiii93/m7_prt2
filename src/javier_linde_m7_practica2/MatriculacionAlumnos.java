@@ -140,6 +140,7 @@ public class MatriculacionAlumnos extends JFrame {
 					
 				}else {
 					modeloA.addElement(textField.getText());
+					textField.setText("");
 				}
 				
 			}

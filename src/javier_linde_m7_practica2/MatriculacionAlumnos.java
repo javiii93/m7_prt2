@@ -132,10 +132,48 @@ public class MatriculacionAlumnos extends JFrame {
 
 		JButton btnAadirAlumno = new JButton("Inscribir alumno");
 		btnAadirAlumno.setBounds(230, 59, 189, 37);
+		btnAadirAlumno.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().isEmpty()) {
+					
+				}else {
+					modeloA.addElement(textField.getText());
+				}
+				
+			}
+		});
 		panel_1.add(btnAadirAlumno);
 
 		JButton btnNewButton_2 = new JButton("Eliminar alumno");
 		btnNewButton_2.setBounds(0, 163, 369, 45);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String nombre="";
+				System.out.println(list_1.getSelectedValuesList());
+				List<String> seleccionB = list_1.getSelectedValuesList();
+				List<String> seleccionA = list.getSelectedValuesList();
+				if(seleccionA.size()!=0) {
+					for(int i=0;i<seleccionA.size();i++) {
+						nombre=seleccionA.get(i);
+						modeloA.removeElement(nombre);
+					}
+					
+				}else if(seleccionB.size()!=0) {
+					for(int i=0;i<seleccionB.size();i++) {
+						nombre=seleccionB.get(i);
+						modeloB.removeElement(nombre);
+					}
+					
+				}
+				/*modeloA.removeElement();list_1.getSelectedValuesList();
+				list.getSelectedValuesList();*/
+				
+			}
+		});
 		panel_1.add(btnNewButton_2);
 
 		textField = new JTextField();
